@@ -1,9 +1,9 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import banner1 from "../../../../assets/banner1.svg";
-import banner2 from "../../../../assets/banner2.svg";
-import banner3 from "../../../../assets/banner3.svg";
+import banner1 from "../../../assets/banner1.svg";
+import banner2 from "../../../assets/banner2.svg";
+import banner3 from "../../../assets/banner3.svg";
 
 const Banner = () => {
   return (
