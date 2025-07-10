@@ -8,6 +8,7 @@
   --color-primary: #b1b8df;
   --color-secondary: #b3bcf0;
   --color-accent: #9896df;
+  --color-backPrimary:black;
 }
 body {
   background-color: rgb(222, 220, 220);
