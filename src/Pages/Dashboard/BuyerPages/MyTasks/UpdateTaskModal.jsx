@@ -46,32 +46,30 @@ const UpdateTaskModal = ({ task, onClose, refetch }) => {
       className="modal modal-bottom sm:modal-middle"
     >
       <div className="modal-box">
-        <h3 className="font-bold text-lg mb-4">Update Task</h3>
+        <h3 className="font-bold text-lg text-center mb-4">Update Task</h3>
 
         <div className="space-y-3">
           <div>
-            <label className="label">Task Title</label>
+            <label>Task Title</label>
             <input
               type="text"
               name="task_title"
               value={formData.task_title}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="border border-gray-400 p-2 w-full rounded-lg"
               placeholder="Task Title"
             />
           </div>
-
           <div>
             <label className="label">Task Detail</label>
             <textarea
               name="task_detail"
               value={formData.task_detail}
               onChange={handleChange}
-              className="textarea textarea-bordered w-full"
+              className="border border-gray-400 p-2 w-full h-32 rounded-lg"
               placeholder="Task Details"
             />
           </div>
-
           <div>
             <label className="label">Submission Info</label>
             <input
@@ -79,14 +77,13 @@ const UpdateTaskModal = ({ task, onClose, refetch }) => {
               name="submission_info"
               value={formData.submission_info}
               onChange={handleChange}
-              className="input input-bordered w-full"
+              className="border border-gray-400 p-2 w-full rounded-lg"
               placeholder="e.g. Screenshot/Link"
             />
           </div>
         </div>
-
         <div className="modal-action">
-          <button onClick={handleUpdate} className="btn btn-primary">
+          <button onClick={handleUpdate} className="btn btn-primary text-black">
             Update
           </button>
           <button onClick={onClose} className="btn">
