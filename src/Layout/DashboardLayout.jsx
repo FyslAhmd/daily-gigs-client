@@ -80,7 +80,7 @@ const DashboardLayout = () => {
             </NavLink>
           </li>
           <li className="text-xl font-bold">
-            <NavLink to="/dashboard/trackParcel">
+            <NavLink to="/dashboard/purchaseCoins">
               <FaTruck className="mr-2" />
               Purchase Coin
             </NavLink>

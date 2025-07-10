@@ -12,6 +12,7 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 import AddNewTask from "../Pages/Dashboard/BuyerPages/AddNewTask/AddNewTask";
 import MyTasks from "../Pages/Dashboard/BuyerPages/MyTasks/MyTasks";
+import Payment from "../Pages/Dashboard/BuyerPages/PurchaseCoin/Payment";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "myTasks",
         Component: MyTasks,
+      },
+      {
+        path: "purchaseCoins",
+        Component: Payment,
       },
     ],
   },
