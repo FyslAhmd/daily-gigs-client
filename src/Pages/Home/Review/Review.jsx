@@ -87,7 +87,7 @@ const Review = () => {
   const offset = -currentIndex * (cardWidth + 48);
 
   return (
-    <div className="my-10 px-4 bg-transparent text-black overflow-hidden">
+    <div className="my-16 px-4 bg-transparent text-black overflow-hidden">
       <h2 className="text-3xl font-bold text-center">Customer Reviews</h2>
       <p className="font-medium w-4/6 mx-auto text-center my-4">
         See what users are saying about their experience with our platform.
