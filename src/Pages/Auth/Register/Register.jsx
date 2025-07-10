@@ -6,6 +6,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import axios from "axios";
 import useAxios from "../../../Hooks/useAxios";
 import useAuth from "../../../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     if (!profilePic) {
-      alert("Please upload a profile picture.");
+      toast.error("Please upload a profile picture.");
       return;
     }
 
@@ -33,8 +34,19 @@ const Register = () => {
         return;
       }
 
-      const userCredential = await createUser(data.email, data.password);
-      const user = userCredential.user;
+      await createUser(data.email, data.password)
+        .then((res) => {
+          toast.success("Registration Successfull");
+          console.log(res.user);
+        })
+        .catch((error) => {
+          console.error(error);
+          if (error.code === "auth/email-already-in-use") {
+            toast.error("Email already registered. Try logging in.");
+          } else {
+            toast.error("Registration failed. Please try again.");
+          }
+        });
 
       const defaultCoins = data.role === "worker" ? 10 : 50;
 
@@ -57,7 +69,7 @@ const Register = () => {
 
       navigate("/");
     } catch (err) {
-      console.error("Registration error:", err);
+        console.error("Registration error:", err);
     }
   };
 

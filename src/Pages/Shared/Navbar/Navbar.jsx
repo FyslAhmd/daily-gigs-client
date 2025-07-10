@@ -16,31 +16,28 @@ const Navbar = () => {
   };
   const navItems = (
     <>
-      <NavLink className="text-base font-medium mx-2 px-3 py-2" to="/">
+      <NavLink className="text-base font-medium px-3 py-2" to="/">
         Home
-      </NavLink>
-      <NavLink className="text-base font-medium mx-2 px-3 py-2" to="/beADev">
-        Join as Developer
       </NavLink>
       {user && (
         <>
-          <NavLink
-            className="text-base font-medium mx-2 px-3 py-2"
-            to="/dashboard"
-          >
+          <NavLink className="text-base font-medium px-3 py-2" to="/dashboard">
             Dashboard
           </NavLink>
           <NavLink
-            className="text-base font-medium mx-2 px-3 py-2"
-            to="/riderRegistration"
+            className="text-base font-medium px-3 py-2"
+            to="/availableCoin"
           >
-            Be a Rider
+            Available Coin
           </NavLink>
         </>
       )}
-      <NavLink className="text-base font-medium mx-2 px-3 py-2" to="/about">
-        About Us
+      <NavLink className="text-base font-medium px-3 py-2" to="/beADev">
+        Join as Developer
       </NavLink>
+      {/* <NavLink className="text-base font-medium px-3 py-2" to="/about">
+        About Us
+      </NavLink> */}
     </>
   );
   return (
@@ -78,12 +75,19 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <button
-            className="btn bg-primary rounded-full ml-2"
-            onClick={handleLogOut}
-          >
-            Logout
-          </button>
+          <div className="flex items-center">
+            <img
+              src={user.photoURL}
+              alt=""
+              className="w-12 h-12 rounded-full bg-white p-2"
+            />
+            <button
+              className="btn bg-primary rounded-full ml-2"
+              onClick={handleLogOut}
+            >
+              Logout
+            </button>
+          </div>
         ) : (
           <>
             <Link className="btn rounded-full bg-transparent" to="/login">
