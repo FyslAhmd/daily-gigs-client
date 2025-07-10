@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
+import demoPerson from '../../../assets/demoPerson.png'
 
 const reviews = [
   {
@@ -82,11 +83,11 @@ const Review = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const cardWidth = 320;
+  const cardWidth = 335;
   const offset = -currentIndex * (cardWidth + 48);
 
   return (
-    <div className="py-10 px-4 bg-transparent text-black overflow-hidden">
+    <div className="my-10 px-4 bg-transparent text-black overflow-hidden">
       <h2 className="text-3xl font-bold text-center">Customer Reviews</h2>
       <p className="font-medium w-4/6 mx-auto text-center my-4">
         See what users are saying about their experience with our platform.
@@ -107,12 +108,14 @@ const Review = () => {
             {reviews.map((review, index) => (
               <div
                 key={index}
-                className="min-w-[320px] bg-[url(assets/reviewQuote.png)] bg-no-repeat bg-right-top rounded-xl p-6 shadow-md space-y-4 bg-white"
+                className="min-w-[335px] bg-[url(assets/reviewQuote.png)] bg-no-repeat bg-left-top rounded-xl p-6 shadow-md bg-secondary flex flex-col gap-4"
               >
-                <p className="text-sm line-clamp-5">"{review.description}"</p>
+                <p className="text-sm line-clamp-5 flex-1">
+                  "{review.description}"
+                </p>
                 <hr className="border-dashed" />
                 <div className="flex gap-6 items-center">
-                  <div className="h-8 w-8 rounded-full bg-green-800"></div>
+                  <div className="h-8 w-8 rounded-full bg-white"><img src={demoPerson} alt="" /></div>
                   <div>
                     <div className="font-semibold">{review.name}</div>
                     <div className="text-xs text-gray-500">
