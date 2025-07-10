@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
 import LoadingPage from "../../../Shared/Loading/LoadingPage";
+import { BsCoin } from "react-icons/bs";
 
 const COIN_PACKS = [
   { coins: 10, price: 1 },
@@ -119,14 +120,27 @@ const PurchaseCoin = () => {
         {COIN_PACKS.map((pack) => (
           <div
             key={pack.coins}
-            onClick={() =>
-              document.getElementById("coin_modal").showModal() ||
-              setSelectedPack(pack)
-            }
-            className="border p-6 rounded-xl shadow-lg cursor-pointer hover:shadow-2xl transition"
+            onClick={() => {
+              setSelectedPack(pack);
+              document.getElementById("coin_modal").showModal();
+            }}
+            className="relative group bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 overflow-hidden"
           >
-            <h2 className="text-3xl font-extrabold mb-4">{pack.coins} Coins</h2>
-            <p className="text-xl font-semibold">${pack.price}</p>
+            <div className="absolute inset-0 z-0 rounded-xl bg-gradient-to-r from-purple-400 to-blue-500 opacity-0 group-hover:opacity-20 transition duration-300 pointer-events-none" />
+            <div className="relative z-10 flex flex-col items-center text-center">
+              <div className="text-yellow-500 text-5xl mb-4">
+                <BsCoin size={40} />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                {pack.coins} Coins
+              </h2>
+              <p className="text-lg font-semibold text-gray-600">
+                ${pack.price}
+              </p>
+              <span className="mt-3 inline-block bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1 rounded-full">
+                Only ${(pack.price / pack.coins).toFixed(2)} / coin
+              </span>
+            </div>
           </div>
         ))}
       </div>

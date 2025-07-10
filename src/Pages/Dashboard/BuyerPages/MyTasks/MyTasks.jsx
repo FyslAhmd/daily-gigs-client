@@ -54,7 +54,7 @@ const MyTasks = () => {
 
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full text-sm md:text-base">
-          <thead className="bg-gray-100 text-black">
+          <thead className="bg-gray-100 text-base text-black">
             <tr>
               <th>Title</th>
               <th>Completion Date</th>
@@ -64,7 +64,7 @@ const MyTasks = () => {
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="font-medium">
             {tasks.map((task) => (
               <tr key={task._id}>
                 <td>{task.task_title}</td>

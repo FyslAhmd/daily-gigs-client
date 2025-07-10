@@ -86,7 +86,7 @@ const DashboardLayout = () => {
             </NavLink>
           </li>
           <li className="text-xl font-bold">
-            <NavLink to="/dashboard/updateProfile">
+            <NavLink to="/dashboard/paymentHistory">
               <FaUserCircle className="mr-2" />
               Payment history
             </NavLink>
