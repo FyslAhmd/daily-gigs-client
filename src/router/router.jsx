@@ -18,6 +18,7 @@ import TaskList from "../Pages/Dashboard/WorkerPages/TaskList/TaskList";
 import TaskDetails from "../Pages/Dashboard/WorkerPages/TaskDetails/TaskDetails";
 import MySubmission from "../Pages/Dashboard/WorkerPages/MySubmission/MySubmission";
 import WithDrawals from "../Pages/Dashboard/WorkerPages/WithDrawals/WithDrawals";
+import ManageUser from "../Pages/Dashboard/AdminPages/ManageUser/ManageUser";
 
 const router = createBrowserRouter([
   {
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
       {
         path: "withdrawals",
         Component: WithDrawals,
+      },
+      {
+        path: "manageUsers",
+        Component: ManageUser,
       },
     ],
   },

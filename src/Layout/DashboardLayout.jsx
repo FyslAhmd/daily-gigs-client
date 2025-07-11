@@ -109,6 +109,12 @@ const DashboardLayout = () => {
               Withdrawals
             </NavLink>
           </li>
+          <li className="text-xl font-bold">
+            <NavLink to="/dashboard/manageUsers">
+              <FaUserCircle className="mr-2" />
+              Manage Users
+            </NavLink>
+          </li>
 
           {/* riders links */}
           {/* {!isLoading && role === "rider" && (
