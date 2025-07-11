@@ -4,20 +4,26 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
 import LoadingPage from "../../../Shared/Loading/LoadingPage";
+import { useQuery } from "@tanstack/react-query";
 
 const TaskDetails = () => {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
-  const [task, setTask] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   const [submissionDetails, setSubmissionDetails] = useState("");
 
-  useEffect(() => {
-    axiosSecure.get(`/tasks/${id}`).then((res) => {
-      setTask(res.data);
-    });
-  }, [axiosSecure, id]);
+  const {
+    data: task,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["task", id],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/tasks/${id}`);
+      return res.data;
+    },
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,6 +54,7 @@ const TaskDetails = () => {
           "success"
         );
         setSubmissionDetails("");
+        refetch();
       }
     } catch (error) {
       Swal.fire("Error", "Something went wrong!", "error");
@@ -56,7 +63,7 @@ const TaskDetails = () => {
     }
   };
 
-  if (!task) return <LoadingPage />;
+  if (!task || isLoading) return <LoadingPage />;
 
   return (
     <div className="max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-lg">

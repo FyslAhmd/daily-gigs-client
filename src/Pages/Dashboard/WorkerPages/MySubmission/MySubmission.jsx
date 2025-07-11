@@ -43,7 +43,7 @@ const MySubmission = () => {
                 <td>{index + 1}</td>
                 <td>{submission.task_title}</td>
                 <td>{submission.submission_details.slice(0, 40)}...</td>
-                <td>${submission.payable_amount}</td>
+                <td>{submission.payable_amount} Coins</td>
                 <td>{new Date(submission.current_date).toLocaleString()}</td>
                 <td>
                   <span

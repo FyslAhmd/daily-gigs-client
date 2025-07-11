@@ -17,6 +17,7 @@ import PaymentHistory from "../Pages/Dashboard/BuyerPages/PaymentHistory/Payment
 import TaskList from "../Pages/Dashboard/WorkerPages/TaskList/TaskList";
 import TaskDetails from "../Pages/Dashboard/WorkerPages/TaskDetails/TaskDetails";
 import MySubmission from "../Pages/Dashboard/WorkerPages/MySubmission/MySubmission";
+import WithDrawals from "../Pages/Dashboard/WorkerPages/WithDrawals/WithDrawals";
 
 const router = createBrowserRouter([
   {
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
       {
         path: "mySubmissions",
         Component: MySubmission,
+      },
+      {
+        path: "withdrawals",
+        Component: WithDrawals,
       },
     ],
   },

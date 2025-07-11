@@ -103,6 +103,12 @@ const DashboardLayout = () => {
               My Submissions
             </NavLink>
           </li>
+          <li className="text-xl font-bold">
+            <NavLink to="/dashboard/withdrawals">
+              <FaUserCircle className="mr-2" />
+              Withdrawals
+            </NavLink>
+          </li>
 
           {/* riders links */}
           {/* {!isLoading && role === "rider" && (
