@@ -73,7 +73,6 @@ const ManageTasks = () => {
               <th>Payable</th>
               <th>Required Workers</th>
               <th>Completion Date</th>
-              <th>Status</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -88,17 +87,6 @@ const ManageTasks = () => {
                   <td>{task.payable_amount} Coins</td>
                   <td>{task.required_workers}</td>
                   <td>{task.completion_date}</td>
-                  <td>
-                    <span
-                      className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        task.status === "active"
-                          ? "bg-green-100 text-green-700"
-                          : "bg-red-100 text-red-700"
-                      }`}
-                    >
-                      {task.status}
-                    </span>
-                  </td>
                   <td>
                     <button
                       onClick={() => handleDeleteTask(task._id)}

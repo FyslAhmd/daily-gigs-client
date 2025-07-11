@@ -1,20 +1,40 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router";
 import Logo from "../Pages/Shared/Logo/Logo";
+import useUserRole from "../Hooks/useUserRole";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import useAuth from "../Hooks/useAuth";
+import { IoNotifications } from "react-icons/io5";
 import {
-  FaBoxOpen,
-  FaHistory,
   FaHome,
-  FaTruck,
-  FaUserCircle,
+  FaClipboardList,
+  FaRegPaperPlane,
+  FaMoneyBillWave,
+  FaTasks,
+  FaClipboardCheck,
+  FaCoins,
+  FaReceipt,
+  FaUsersCog,
+  FaListAlt,
 } from "react-icons/fa";
 
 const DashboardLayout = () => {
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const { role, isLoading } = useUserRole();
+  const { data: userData = {} } = useQuery({
+    queryKey: ["userCoins", user.email],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/users/byEmail?email=${user.email}`);
+      return res.data;
+    },
+  });
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content bg-white flex flex-col">
-        <div className="navbar w-full lg:hidden">
+        <div className="navbar w-full">
           <div className="flex-none lg:hidden">
             <label
               htmlFor="my-drawer-2"
@@ -36,18 +56,31 @@ const DashboardLayout = () => {
               </svg>
             </label>
           </div>
-          <div className="mx-2 flex-1 px-2">Dashboard</div>
-        </div>
-        <div>
-          <div className="flex items-center justify-end gap-4 border">
+          <div className="text-3xl font-extrabold mx-2 flex-1 px-2">
+            Dashboard
+          </div>
+          <div className="flex items-center justify-end gap-4">
             <div className="flex flex-col items-end">
-              <p>Available coin | userImage</p>
-              <p>userRole | userName</p>
+              <p className="font-medium">{userData.coins} Coins</p>
+              <p className="font-medium">
+                {userData.name} | {userData.role}
+              </p>
             </div>
             <div>
-              <a href="">Notification</a>
+              <img
+                src={userData.profilePic}
+                className="w-12 h-12 rounded-full"
+                alt=""
+              />
+            </div>
+            <div>
+              <button>
+                <IoNotifications size={28} color="red" />
+              </button>
             </div>
           </div>
+        </div>
+        <div>
           <div>
             <Outlet />
           </div>
@@ -67,114 +100,78 @@ const DashboardLayout = () => {
               Home
             </NavLink>
           </li>
-          <li className="text-xl font-bold">
-            <NavLink to="/dashboard/addNewTask">
-              <FaBoxOpen className="mr-2" />
-              Add new Tasks
-            </NavLink>
-          </li>
-          <li className="text-xl font-bold">
-            <NavLink to="/dashboard/myTasks">
-              <FaHistory className="mr-2" />
-              My Tasks
-            </NavLink>
-          </li>
-          <li className="text-xl font-bold">
-            <NavLink to="/dashboard/purchaseCoins">
-              <FaTruck className="mr-2" />
-              Purchase Coin
-            </NavLink>
-          </li>
-          <li className="text-xl font-bold">
-            <NavLink to="/dashboard/paymentHistory">
-              <FaUserCircle className="mr-2" />
-              Payment history
-            </NavLink>
-          </li>
-          <li className="text-xl font-bold">
-            <NavLink to="/dashboard/taskList">
-              <FaUserCircle className="mr-2" />
-              Task Lists
-            </NavLink>
-          </li>
-          <li className="text-xl font-bold">
-            <NavLink to="/dashboard/mySubmissions">
-              <FaUserCircle className="mr-2" />
-              My Submissions
-            </NavLink>
-          </li>
-          <li className="text-xl font-bold">
-            <NavLink to="/dashboard/withdrawals">
-              <FaUserCircle className="mr-2" />
-              Withdrawals
-            </NavLink>
-          </li>
-          <li className="text-xl font-bold">
-            <NavLink to="/dashboard/manageUsers">
-              <FaUserCircle className="mr-2" />
-              Manage Users
-            </NavLink>
-          </li>
-          <li className="text-xl font-bold">
-            <NavLink to="/dashboard/manageTasks">
-              <FaUserCircle className="mr-2" />
-              Manage Tasks
-            </NavLink>
-          </li>
 
-          {/* riders links */}
-          {/* {!isLoading && role === "rider" && (
+          {/* worker links */}
+          {!isLoading && role === "worker" && (
             <>
               <li className="text-xl font-bold">
-                <NavLink to="/dashboard/pendingDelivaries">
-                  <FaTasks className="mr-2" />
-                  Pending Delivaries
+                <NavLink to="/dashboard/taskList">
+                  <FaClipboardList className="mr-2" />
+                  Task Lists
                 </NavLink>
               </li>
               <li className="text-xl font-bold">
-                <NavLink to="/dashboard/completeDelivaries">
-                  <FaCheckCircle className="mr-2" />
-                  Complete Delivaries
+                <NavLink to="/dashboard/mySubmissions">
+                  <FaRegPaperPlane className="mr-2" />
+                  My Submissions
                 </NavLink>
               </li>
               <li className="text-xl font-bold">
-                <NavLink to="/dashboard/myEarnings">
-                  <FaWallet className="mr-2" />
-                  My Earnings
+                <NavLink to="/dashboard/withdrawals">
+                  <FaMoneyBillWave className="mr-2" />
+                  Withdrawals
                 </NavLink>
               </li>
             </>
-          )} */}
+          )}
+
+          {/* buyers links */}
+          {!isLoading && role === "buyer" && (
+            <>
+              <li className="text-xl font-bold">
+                <NavLink to="/dashboard/addNewTask">
+                  <FaTasks className="mr-2" />
+                  Add new Tasks
+                </NavLink>
+              </li>
+              <li className="text-xl font-bold">
+                <NavLink to="/dashboard/myTasks">
+                  <FaClipboardCheck className="mr-2" />
+                  My Tasks
+                </NavLink>
+              </li>
+              <li className="text-xl font-bold">
+                <NavLink to="/dashboard/purchaseCoins">
+                  <FaCoins className="mr-2" />
+                  Purchase Coin
+                </NavLink>
+              </li>
+              <li className="text-xl font-bold">
+                <NavLink to="/dashboard/paymentHistory">
+                  <FaReceipt className="mr-2" />
+                  Payment history
+                </NavLink>
+              </li>
+            </>
+          )}
 
           {/* admin links */}
-          {/* {!isLoading && role === "admin" && (
+          {!isLoading && role === "admin" && (
             <>
               <li className="text-xl font-bold">
-                <NavLink to="/dashboard/activeRiders">
-                  <FaUserCheck className="mr-2" />
-                  Active Riders
+                <NavLink to="/dashboard/manageUsers">
+                  <FaUsersCog className="mr-2" />
+                  Manage Users
                 </NavLink>
               </li>
               <li className="text-xl font-bold">
-                <NavLink to="/dashboard/pandingRiders">
-                  <FaUserClock className="mr-2" />
-                  Pending Riders
-                </NavLink>
-              </li>
-              <li className="text-xl font-bold">
-                <NavLink to="/dashboard/makeAdmin">
-                  <FaUserShield className="mr-2" />
-                  Make Admin
-                </NavLink>
-              </li>
-              <li className="text-xl font-bold">
-                <NavLink to="/dashboard/assignRiders">
-                  <FaMotorcycle className="mr-2" />
-                  Assign Riders
+                <NavLink to="/dashboard/manageTasks">
+                  <FaListAlt className="mr-2" />
+                  Manage Tasks
                 </NavLink>
               </li>
             </>
-          )} */}
+          )}
         </ul>
       </div>
     </div>
