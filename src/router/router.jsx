@@ -19,6 +19,7 @@ import TaskDetails from "../Pages/Dashboard/WorkerPages/TaskDetails/TaskDetails"
 import MySubmission from "../Pages/Dashboard/WorkerPages/MySubmission/MySubmission";
 import WithDrawals from "../Pages/Dashboard/WorkerPages/WithDrawals/WithDrawals";
 import ManageUser from "../Pages/Dashboard/AdminPages/ManageUser/ManageUser";
+import ManageTasks from "../Pages/Dashboard/AdminPages/ManageTasks/ManageTasks";
 
 const router = createBrowserRouter([
   {
@@ -101,6 +102,10 @@ const router = createBrowserRouter([
       {
         path: "manageUsers",
         Component: ManageUser,
+      },
+      {
+        path: "manageTasks",
+        Component: ManageTasks,
       },
     ],
   },

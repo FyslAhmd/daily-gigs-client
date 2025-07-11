@@ -26,7 +26,7 @@ const PaymentHistory = () => {
       {payments.length === 0 ? (
         <p className="text-center text-gray-500">No payments found.</p>
       ) : (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto bg-white rounded-xl shadow-md">
           <table className="table w-full table-zebra">
             <thead>
               <tr className="text-lg text-black">

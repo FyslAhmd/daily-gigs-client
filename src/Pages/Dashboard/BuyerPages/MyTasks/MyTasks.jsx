@@ -52,7 +52,7 @@ const MyTasks = () => {
     <div className="p-6 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold text-center mb-8">My Tasks</h1>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto bg-white rounded-xl shadow-md">
         <table className="table table-zebra w-full text-sm md:text-base">
           <thead className="bg-gray-100 text-base text-black">
             <tr>

@@ -115,6 +115,12 @@ const DashboardLayout = () => {
               Manage Users
             </NavLink>
           </li>
+          <li className="text-xl font-bold">
+            <NavLink to="/dashboard/manageTasks">
+              <FaUserCircle className="mr-2" />
+              Manage Tasks
+            </NavLink>
+          </li>
 
           {/* riders links */}
           {/* {!isLoading && role === "rider" && (

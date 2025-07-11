@@ -25,7 +25,7 @@ const MySubmission = () => {
       <h2 className="text-3xl font-bold mb-6 text-center">
         My Task Submissions
       </h2>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto bg-white rounded-xl shadow-md">
         <table className="table table-zebra w-full">
           <thead className="text-lg text-black">
             <tr>
