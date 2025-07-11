@@ -14,6 +14,7 @@ import AddNewTask from "../Pages/Dashboard/BuyerPages/AddNewTask/AddNewTask";
 import MyTasks from "../Pages/Dashboard/BuyerPages/MyTasks/MyTasks";
 import Payment from "../Pages/Dashboard/BuyerPages/PurchaseCoin/Payment";
 import PaymentHistory from "../Pages/Dashboard/BuyerPages/PaymentHistory/PaymentHistory";
+import TaskList from "../Pages/Dashboard/WorkerPages/TaskList/TaskList";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
       {
         path: "paymentHistory",
         Component: PaymentHistory,
+      },
+      {
+        path: "taskList",
+        Component: TaskList,
       },
     ],
   },

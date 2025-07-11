@@ -8,11 +8,11 @@
   --color-primary: #b1b8df;
   --color-secondary: #b3bcf0;
   --color-accent: #9896df;
+  --color-error: #dfdefc;
 }
 body {
   background-color: rgb(222, 220, 220);
   font-family: "Roboto", sans-serif;
-  /* color: #b3bcf0; */
 }
 a.active {
   @apply rounded-full bg-primary;

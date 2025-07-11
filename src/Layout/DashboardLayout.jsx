@@ -91,6 +91,12 @@ const DashboardLayout = () => {
               Payment history
             </NavLink>
           </li>
+          <li className="text-xl font-bold">
+            <NavLink to="/dashboard/taskList">
+              <FaUserCircle className="mr-2" />
+              Task List
+            </NavLink>
+          </li>
 
           {/* riders links */}
           {/* {!isLoading && role === "rider" && (
