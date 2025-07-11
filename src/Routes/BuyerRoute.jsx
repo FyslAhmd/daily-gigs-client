@@ -4,7 +4,7 @@ import useUserRole from "../Hooks/useUserRole";
 import { Navigate } from "react-router";
 import LoadingPage from "../Pages/Shared/Loading/LoadingPage";
 
-const AdminRoute = ({ children }) => {
+const BuyerRoute = ({ children }) => {
   const { user, loading } = useAuth();
   const { role, isLoading } = useUserRole();
 
@@ -19,4 +19,4 @@ const AdminRoute = ({ children }) => {
   return children;
 };
 
-export default AdminRoute;
+export default BuyerRoute;

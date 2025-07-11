@@ -79,7 +79,7 @@ const Navbar = () => {
             <img
               src={user.photoURL}
               alt=""
-              className="w-12 h-12 rounded-full bg-white p-2"
+              className="w-12 h-12 rounded-full bg-white"
             />
             <button
               className="btn bg-primary rounded-full ml-2"

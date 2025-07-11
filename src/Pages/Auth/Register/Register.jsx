@@ -28,7 +28,7 @@ const Register = () => {
     }
 
     try {
-      const existing = await axiosIns.get(`/users?email=${data.email}`);
+      const existing = await axiosIns.get(`/users/byEmail?email=${data.email}`);
       if (existing.data?.email) {
         setEmailExists(true);
         return;
@@ -67,9 +67,9 @@ const Register = () => {
         photoURL: profilePic,
       });
 
-      navigate("/");
+      navigate("/dashboard");
     } catch (err) {
-        console.error("Registration error:", err);
+      console.error("Registration error:", err);
     }
   };
 

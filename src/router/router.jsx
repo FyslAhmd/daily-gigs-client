@@ -20,6 +20,10 @@ import MySubmission from "../Pages/Dashboard/WorkerPages/MySubmission/MySubmissi
 import WithDrawals from "../Pages/Dashboard/WorkerPages/WithDrawals/WithDrawals";
 import ManageUser from "../Pages/Dashboard/AdminPages/ManageUser/ManageUser";
 import ManageTasks from "../Pages/Dashboard/AdminPages/ManageTasks/ManageTasks";
+import PrivateRoute from "../Routes/PrivateRoute";
+import BuyerRoute from "../Routes/BuyerRoute";
+import WorkerRoute from "../Routes/WorkerRoute";
+import AdminRoute from "../Routes/AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -61,7 +65,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    Component: DashboardLayout,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         index: true,
@@ -69,43 +77,83 @@ const router = createBrowserRouter([
       },
       {
         path: "addNewTask",
-        Component: AddNewTask,
+        element: (
+          <BuyerRoute>
+            <AddNewTask />
+          </BuyerRoute>
+        ),
       },
       {
         path: "myTasks",
-        Component: MyTasks,
+        element: (
+          <BuyerRoute>
+            <MyTasks />
+          </BuyerRoute>
+        ),
       },
       {
         path: "purchaseCoins",
-        Component: Payment,
+        element: (
+          <BuyerRoute>
+            <Payment />
+          </BuyerRoute>
+        ),
       },
       {
         path: "paymentHistory",
-        Component: PaymentHistory,
+        element: (
+          <BuyerRoute>
+            <PaymentHistory />
+          </BuyerRoute>
+        ),
       },
       {
         path: "taskList",
-        Component: TaskList,
+        element: (
+          <WorkerRoute>
+            <TaskList />
+          </WorkerRoute>
+        ),
       },
       {
         path: "taskDetails/:id",
-        Component: TaskDetails,
+        element: (
+          <WorkerRoute>
+            <TaskDetails />
+          </WorkerRoute>
+        ),
       },
       {
         path: "mySubmissions",
-        Component: MySubmission,
+        element: (
+          <WorkerRoute>
+            <MySubmission />
+          </WorkerRoute>
+        ),
       },
       {
         path: "withdrawals",
-        Component: WithDrawals,
+        element: (
+          <WorkerRoute>
+            <WithDrawals />
+          </WorkerRoute>
+        ),
       },
       {
         path: "manageUsers",
-        Component: ManageUser,
+        element: (
+          <AdminRoute>
+            <ManageUser />
+          </AdminRoute>
+        ),
       },
       {
         path: "manageTasks",
-        Component: ManageTasks,
+        element: (
+          <AdminRoute>
+            <ManageTasks />
+          </AdminRoute>
+        ),
       },
     ],
   },

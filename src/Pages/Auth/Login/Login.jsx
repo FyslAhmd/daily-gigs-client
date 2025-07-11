@@ -25,7 +25,7 @@ const Login = () => {
         await axiosIns.patch("/users/last-login", {
           email: data.email,
         });
-        navigate(location.state ? location.state : "/");
+        navigate(location.state ? location.state : "/dashboard");
       })
       .catch((err) => {
         console.error("Login error:", err);
@@ -73,7 +73,7 @@ const Login = () => {
         <p className="my-2">
           Don't have an account?{" "}
           <Link to="/register">
-            <span className="text-primary">Register</span>
+            <span className="font-extrabold text-accent">Register</span>
           </Link>
         </p>
       </form>
