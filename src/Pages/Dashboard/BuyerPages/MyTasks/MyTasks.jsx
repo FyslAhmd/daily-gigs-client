@@ -67,7 +67,7 @@ const MyTasks = () => {
           <tbody className="font-medium">
             {tasks.map((task) => (
               <tr key={task._id}>
-                <td>{task.task_title}</td>
+                <td>{task.task_title.split(" ").slice(0, 2).join(" ")}</td>
                 <td>{dayjs(task.completion_date).format("DD MMM YYYY")}</td>
                 <td>{task.required_workers}</td>
                 <td>{task.payable_amount} Coins</td>

@@ -83,6 +83,7 @@ const AddNewTask = () => {
         submission_info: data.submission_info,
         image: taskImage,
         status: "active",
+        buyer_name: user?.displayName,
         created_by: user?.email,
         created_at: new Date().toISOString(),
       };
@@ -90,7 +91,7 @@ const AddNewTask = () => {
       const taskRes = await axiosSecure.post("/tasks", taskInfo);
       if (taskRes.data.insertedId) {
         Swal.fire("Task Added Successfully!", "", "success");
-        navigate("/dashboard/my-tasks");
+        navigate("/dashboard/myTasks");
       }
     } catch (error) {
       console.log("Task Submission Error:", error);

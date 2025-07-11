@@ -94,7 +94,13 @@ const DashboardLayout = () => {
           <li className="text-xl font-bold">
             <NavLink to="/dashboard/taskList">
               <FaUserCircle className="mr-2" />
-              Task List
+              Task Lists
+            </NavLink>
+          </li>
+          <li className="text-xl font-bold">
+            <NavLink to="/dashboard/mySubmissions">
+              <FaUserCircle className="mr-2" />
+              My Submissions
             </NavLink>
           </li>
 
