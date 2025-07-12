@@ -61,10 +61,6 @@ const WithDrawals = () => {
     try {
       const res = await axiosSecure.post("/withdrawals", withdrawal);
       if (res.data.insertedId) {
-        await axiosSecure.patch("/coins/deduct", {
-          email: user.email,
-          amount: withdrawCoin,
-        });
         Swal.fire(
           "Success!",
           "Your withdrawal request is pending approval.",
