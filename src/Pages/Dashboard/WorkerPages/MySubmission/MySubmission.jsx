@@ -49,7 +49,7 @@ const MySubmission = () => {
                   <span
                     className={`px-3 py-1 rounded-full text-sm font-medium ${
                       submission.status === "pending"
-                        ? "bg-red-400 text-black"
+                        ? "bg-yellow-400 text-black"
                         : submission.status === "approved"
                         ? "bg-green-200 text-green-800"
                         : "bg-red-400 text-black"
