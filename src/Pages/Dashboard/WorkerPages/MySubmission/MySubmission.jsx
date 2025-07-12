@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../Hooks/useAuth";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
@@ -7,14 +7,22 @@ import LoadingPage from "../../../Shared/Loading/LoadingPage";
 const MySubmission = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const [page, setPage] = useState(1);
+  const limit = 10;
 
-  const { data: submissions = [], isLoading } = useQuery({
-    queryKey: ["my-submissions", user?.email],
+  const { data: submissionData = {}, isLoading } = useQuery({
+    queryKey: ["my-submissions", user?.email, page],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/submissions/${user.email}`);
+      const res = await axiosSecure.get(
+        `/submissions/${user.email}?page=${page}&limit=${limit}`
+      );
       return res.data;
     },
+    keepPreviousData: true,
+    enabled: !!user?.email,
   });
+
+  const { submissions = [], totalPages = 0 } = submissionData;
 
   if (isLoading) {
     return <LoadingPage />;
@@ -40,7 +48,7 @@ const MySubmission = () => {
           <tbody className="text-base font-medium">
             {submissions.map((submission, index) => (
               <tr key={submission._id}>
-                <td>{index + 1}</td>
+                <td>{(page - 1) * limit + index + 1}</td>
                 <td>{submission.task_title}</td>
                 <td>{submission.submission_details.slice(0, 40)}...</td>
                 <td>{submission.payable_amount} Coins</td>
@@ -65,6 +73,25 @@ const MySubmission = () => {
         {submissions.length === 0 && (
           <p className="text-center text-gray-500 mt-6">No submissions yet.</p>
         )}
+        <div className="flex justify-center gap-4 my-6">
+          <button
+            disabled={page === 1}
+            onClick={() => setPage((prev) => prev - 1)}
+            className="btn btn-sm btn-outline"
+          >
+            Previous
+          </button>
+          <span className="text-lg font-semibold">
+            Page {page} of {totalPages}
+          </span>
+          <button
+            disabled={page === totalPages}
+            onClick={() => setPage((prev) => prev + 1)}
+            className="btn btn-sm btn-outline"
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );
