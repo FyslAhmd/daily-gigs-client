@@ -79,14 +79,13 @@ const AdminHome = () => {
           </p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow-md text-center">
-          <h3 className="text-xl font-semibold mb-2">Total Payments ($)</h3>
+          <h3 className="text-xl font-semibold mb-2">Total Payments</h3>
           <p className="text-3xl font-bold text-red-600">
-            ${stats.totalPayment}
+            {stats.totalPayment} Coins
           </p>
         </div>
       </div>
 
-      {/* Pie Chart */}
       <div className="bg-white p-6 rounded-lg shadow-md mb-10">
         <h3 className="text-xl font-bold mb-4">User Distribution</h3>
         <ResponsiveContainer width="100%" height={300}>
@@ -114,7 +113,6 @@ const AdminHome = () => {
         </ResponsiveContainer>
       </div>
 
-      {/* Withdraw Requests Table */}
       <div className="bg-white p-6 rounded-lg shadow-md">
         <h3 className="text-xl font-bold mb-4">Pending Withdrawal Requests</h3>
         <div className="overflow-x-auto">
