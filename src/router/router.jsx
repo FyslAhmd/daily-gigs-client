@@ -24,6 +24,7 @@ import PrivateRoute from "../Routes/PrivateRoute";
 import BuyerRoute from "../Routes/BuyerRoute";
 import WorkerRoute from "../Routes/WorkerRoute";
 import AdminRoute from "../Routes/AdminRoute";
+import Error404 from "../Pages/Shared/Error404/Error404";
 
 const router = createBrowserRouter([
   {
@@ -156,6 +157,10 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "*",
+    Component: Error404,
   },
 ]);
 export default router;

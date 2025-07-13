@@ -108,7 +108,7 @@ const Review = () => {
             {reviews.map((review, index) => (
               <div
                 key={index}
-                className="min-w-[335px] bg-[url(assets/reviewQuote.png)] bg-no-repeat bg-left-top rounded-xl p-6 shadow-md bg-secondary flex flex-col gap-4"
+                className="min-w-[335px] bg-[url(assets/reviewQuote.png)] bg-no-repeat bg-left-top rounded-xl p-6 shadow-md bg-[#b0b8df] flex flex-col gap-4"
               >
                 <p className="text-sm line-clamp-5 flex-1">
                   "{review.description}"

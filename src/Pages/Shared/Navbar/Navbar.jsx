@@ -32,12 +32,13 @@ const Navbar = () => {
           </NavLink>
         </>
       )}
-      <NavLink className="text-base font-medium px-3 py-2" to="/beADev">
+      <a
+        href="https://github.com/Programming-Hero-Web-Course4/b11a12-client-side-FyslAhmd"
+        target="_blank"
+        className="text-base font-medium px-3 py-2"
+      >
         Join as Developer
-      </NavLink>
-      {/* <NavLink className="text-base font-medium px-3 py-2" to="/about">
-        About Us
-      </NavLink> */}
+      </a>
     </>
   );
   return (

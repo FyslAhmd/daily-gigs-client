@@ -16,12 +16,16 @@ const Footer = () => {
 
       <nav>
         <h6 className="footer-title">Explore</h6>
-        <Link to="/about" className="link link-hover">
+        <Link to="/" className="link link-hover">
           About Us
         </Link>
-        <Link to="/beADev" className="link link-hover">
+        <a
+          href="https://github.com/Programming-Hero-Web-Course4/b11a12-client-side-FyslAhmd"
+          target="_blank"
+          className="link link-hover"
+        >
           Be A Developer
-        </Link>
+        </a>
         <Link to="/tasks" className="link link-hover">
           Browse Tasks
         </Link>
