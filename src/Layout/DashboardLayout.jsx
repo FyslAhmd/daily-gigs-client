@@ -19,6 +19,7 @@ import {
   FaUsersCog,
   FaListAlt,
 } from "react-icons/fa";
+import Footer from "../Pages/Shared/Footer/Footer";
 
 const DashboardLayout = () => {
   const { user } = useAuth();
@@ -76,13 +77,15 @@ const DashboardLayout = () => {
               </svg>
             </label>
           </div>
-          <div className="text-3xl font-extrabold flex-1">Dashboard</div>
+          <div className="text-lg md:text-3xl font-extrabold flex-1">
+            <p className="hidden md:block">Dashboard</p>
+          </div>
           <div className="flex items-center gap-4 relative">
             {/* User Info */}
             <div className="flex flex-col items-end">
               <p className="font-medium">{userData.coins} Coins</p>
               <p className="font-medium">
-                {userData.name} | {userData.role}
+                {userData.name?.split(" ")[0]} | {userData.role}
               </p>
             </div>
             <div>
@@ -132,6 +135,11 @@ const DashboardLayout = () => {
         {/* Main Content */}
         <div className="p-4 flex-1">
           <Outlet />
+        </div>
+
+        {/* Footer */}
+        <div>
+          <Footer />
         </div>
       </div>
 

@@ -18,7 +18,7 @@ const Banner = () => {
         <img
           src={banner1}
           alt="Fast Delivery"
-          className="h-[70vh] w-full object-cover"
+          className="md:h-[60vh] lg:h-[70vh] w-full object-cover"
         />
       </div>
 
@@ -26,7 +26,7 @@ const Banner = () => {
         <img
           src={banner2}
           alt="Tracking"
-          className="h-[70vh] w-full object-cover"
+          className="md:h-[60vh] lg:h-[70vh] w-full object-cover"
         />
       </div>
 
@@ -34,7 +34,7 @@ const Banner = () => {
         <img
           src={banner3}
           alt="Nationwide Delivery"
-          className="h-[70vh] w-full object-cover"
+          className="md:h-[60vh] lg:h-[70vh] w-full object-cover"
         />
       </div>
     </Carousel>

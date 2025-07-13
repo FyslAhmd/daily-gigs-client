@@ -12,11 +12,11 @@ const brands = [fiverr, upwork, stripe, payoneer, slack, linkedin];
 
 const SupportedBrand = () => {
   return (
-    <div className="my-16">
+    <div className="my-8 md:my-12 lg:my-16">
       <h2 className="text-3xl font-extrabold text-center mb-4">
         Trusted by Startups, Marketplaces & Freelance Platforms
       </h2>
-      <p className="text-center text-gray-600 mb-8 w-11/12 md:w-3/5 mx-auto">
+      <p className="text-center text-gray-600 mb-8 w-11/12 md:w-4/5 mx-auto">
         We’re backed by leading platforms and tools that support global gig
         workers and digital taskers. Our connections power your productivity.
       </p>
@@ -27,7 +27,7 @@ const SupportedBrand = () => {
             key={index}
             src={logo}
             alt={`brand-${index}`}
-            className="h-14 mx-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+            className="h-12 md:h-14 mx-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
           />
         ))}
       </Marquee>

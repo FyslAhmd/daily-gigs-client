@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
@@ -7,6 +7,11 @@ import LoadingPage from "../../../Shared/Loading/LoadingPage";
 const ManageTasks = () => {
   const axiosSecure = useAxiosSecure();
   const [searchEmail, setSearchEmail] = useState("");
+
+  useEffect(() => {
+    document.title = "Daily Gigs | Manage Tasks";
+  }, []);
+
   const {
     data: tasks = [],
     isLoading,

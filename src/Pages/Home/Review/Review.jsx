@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
-import demoPerson from '../../../assets/demoPerson.png'
+import demoPerson from "../../../assets/demoPerson.png";
 
 const reviews = [
   {
@@ -87,7 +87,7 @@ const Review = () => {
   const offset = -currentIndex * (cardWidth + 48);
 
   return (
-    <div className="my-16 px-4 bg-transparent text-black overflow-hidden">
+    <div className="my-8 md:my-12 lg:my-16 px-4 bg-transparent text-black overflow-hidden">
       <h2 className="text-3xl font-bold text-center">Customer Reviews</h2>
       <p className="font-medium w-4/6 mx-auto text-center my-4">
         See what users are saying about their experience with our platform.
@@ -101,21 +101,23 @@ const Review = () => {
         </button>
         <div className="overflow-hidden">
           <motion.div
-            className="flex gap-12"
+            className="flex gap-2 md:gap-12"
             animate={{ x: offset }}
             transition={{ type: "tween", duration: 1 }}
           >
             {reviews.map((review, index) => (
               <div
                 key={index}
-                className="min-w-[335px] bg-[url(assets/reviewQuote.png)] bg-no-repeat bg-left-top rounded-xl p-6 shadow-md bg-[#b0b8df] flex flex-col gap-4"
+                className="min-w-[250px] md:min-w-[335px] bg-[url(assets/reviewQuote.png)] bg-no-repeat bg-left-top rounded-xl p-6 shadow-md bg-[#b0b8df] flex flex-col gap-4"
               >
                 <p className="text-sm line-clamp-5 flex-1">
                   "{review.description}"
                 </p>
                 <hr className="border-dashed" />
                 <div className="flex gap-6 items-center">
-                  <div className="h-8 w-8 rounded-full bg-white"><img src={demoPerson} alt="" /></div>
+                  <div className="h-8 w-8 rounded-full bg-white">
+                    <img src={demoPerson} alt="" />
+                  </div>
                   <div>
                     <div className="font-semibold">{review.name}</div>
                     <div className="text-xs text-gray-500">

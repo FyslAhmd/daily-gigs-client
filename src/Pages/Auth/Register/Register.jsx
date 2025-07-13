@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import regLogo from "../../../assets/image-upload-icon.png";
@@ -14,6 +14,10 @@ const Register = () => {
   const { createUser, updateUserProfile } = useAuth();
   const [profilePic, setProfilePic] = useState(null);
   const [emailExists, setEmailExists] = useState(false);
+
+  useEffect(() => {
+    document.title = "Daily Gigs | Register";
+  }, []);
 
   const {
     register,

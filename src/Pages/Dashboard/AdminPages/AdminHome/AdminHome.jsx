@@ -1,5 +1,5 @@
 // ==== Frontend: AdminHome.jsx ====
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
@@ -15,6 +15,11 @@ import {
 
 const AdminHome = () => {
   const axiosSecure = useAxiosSecure();
+
+ useEffect(() => {
+    document.title = "Daily Gigs | Admin Home";
+  }, []);
+
   const {
     data: stats = {},
     isLoading,

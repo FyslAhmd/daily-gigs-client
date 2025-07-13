@@ -47,7 +47,7 @@ const item = {
 const FAQ = () => {
   return (
     <motion.div
-      className="w-full space-y-6 my-16 px-4"
+      className="w-full space-y-6 mt-8 md:my-12 lg:my-16 px-4"
       variants={container}
       initial="hidden"
       whileInView="visible"

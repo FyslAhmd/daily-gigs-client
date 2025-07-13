@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
@@ -15,6 +15,10 @@ const WithDrawals = () => {
   const [withdrawCoin, setWithdrawCoin] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
+
+  useEffect(() => {
+    document.title = "Daily Gigs | Withdrawals";
+  }, []);
 
   const {
     data: userData = {},

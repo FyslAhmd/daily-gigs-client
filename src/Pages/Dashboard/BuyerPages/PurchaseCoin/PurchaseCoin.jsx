@@ -127,7 +127,7 @@ const PurchaseCoin = () => {
             className="relative group bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 overflow-hidden"
           >
             <div className="absolute inset-0 z-0 rounded-xl bg-gradient-to-r from-purple-400 to-blue-500 opacity-0 group-hover:opacity-20 transition duration-300 pointer-events-none" />
-            <div className="relative z-10 flex flex-col items-center text-center">
+            <div className="relative z-0 flex flex-col items-center text-center">
               <div className="text-yellow-500 text-5xl mb-4">
                 <BsCoin size={40} />
               </div>

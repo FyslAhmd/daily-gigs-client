@@ -49,7 +49,7 @@ const cardVariants = {
 
 const HowItWork = () => {
   return (
-    <div className="my-16 px-4 lg:px-16">
+    <div className="my-8 md:my-12 lg:my-16 px-4 lg:px-16">
       <h1 className="font-bold text-3xl mb-4 text-center">How It Works</h1>
 
       <motion.div

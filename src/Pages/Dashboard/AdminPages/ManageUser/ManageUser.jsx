@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
@@ -8,6 +8,10 @@ import profileImg from "../../../../assets/image-upload-icon.png";
 const ManageUser = () => {
   const axiosSecure = useAxiosSecure();
   const [searchEmail, setSearchEmail] = useState("");
+
+   useEffect(() => {
+    document.title = "Daily Gigs | Manage Users";
+  }, []);
 
   const {
     data: users = [],

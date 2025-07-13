@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
@@ -19,6 +19,10 @@ const BuyerHome = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [selectedSubmission, setSelectedSubmission] = useState(null);
+
+   useEffect(() => {
+    document.title = "Daily Gigs | Buyer Home";
+  }, []);
 
   const {
     data: stats = {},

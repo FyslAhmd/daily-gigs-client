@@ -2,8 +2,6 @@ import { createBrowserRouter } from "react-router";
 import RootLayout from "../Layout/RootLayout";
 import LoadingPage from "../Pages/Shared/Loading/LoadingPage";
 import Home from "../Pages/Home/Home/Home";
-import BeADev from "../Pages/BeADev/BeADev";
-import AboutUs from "../Pages/AboutUs/AboutUs";
 import Forbidden from "../Pages/Shared/Forbidden/Forbidden";
 import AuthLayout from "../Layout/AuthLayout";
 import Login from "../Pages/Auth/Login/Login";
@@ -25,6 +23,7 @@ import BuyerRoute from "../Routes/BuyerRoute";
 import WorkerRoute from "../Routes/WorkerRoute";
 import AdminRoute from "../Routes/AdminRoute";
 import Error404 from "../Pages/Shared/Error404/Error404";
+import AvailableCoins from "../Pages/AvailableCoins/AvailableCoins";
 
 const router = createBrowserRouter([
   {
@@ -37,12 +36,12 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "beADev",
-        Component: BeADev,
-      },
-      {
-        path: "about",
-        Component: AboutUs,
+        path: "availableCoins",
+        element: (
+          <PrivateRoute>
+            <AvailableCoins />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/forbidden",

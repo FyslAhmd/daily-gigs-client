@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../Hooks/useAuth";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
@@ -9,6 +9,10 @@ const MySubmission = () => {
   const axiosSecure = useAxiosSecure();
   const [page, setPage] = useState(1);
   const limit = 10;
+
+  useEffect(() => {
+    document.title = "Daily Gigs | My Submissions";
+  }, []);
 
   const { data: submissionData = {}, isLoading } = useQuery({
     queryKey: ["my-submissions", user?.email, page],

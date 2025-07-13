@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
@@ -11,6 +11,10 @@ const AddNewTask = () => {
   const navigate = useNavigate();
   const [taskImage, setTaskImage] = useState(null);
   const [uploading, setUploading] = useState(false);
+
+   useEffect(() => {
+    document.title = "Daily Gigs | Add Task";
+  }, []);
 
   const {
     register,

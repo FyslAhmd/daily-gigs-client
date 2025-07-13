@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import useAuth from "../../../../Hooks/useAuth";
@@ -7,6 +7,10 @@ import dayjs from "dayjs";
 const PaymentHistory = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
+
+   useEffect(() => {
+    document.title = "Daily Gigs | Payment History";
+  }, []);
 
   const { data: payments = [], isLoading } = useQuery({
     queryKey: ["payment-history", user.email],

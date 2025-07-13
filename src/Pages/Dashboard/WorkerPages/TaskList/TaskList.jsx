@@ -1,6 +1,6 @@
 // frontend/src/pages/Worker/TaskList.jsx
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { useNavigate } from "react-router";
@@ -10,6 +10,10 @@ import LoadingPage from "../../../Shared/Loading/LoadingPage";
 const TaskList = () => {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
+
+   useEffect(() => {
+    document.title = "Daily Gigs | Task Lists";
+  }, []);
 
   const { data: tasks = [], isLoading } = useQuery({
     queryKey: ["worker-available-tasks"],

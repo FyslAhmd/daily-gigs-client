@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../Hooks/useAuth";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
@@ -10,6 +10,10 @@ const MyTasks = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [selectedTask, setSelectedTask] = useState(null);
+
+   useEffect(() => {
+    document.title = "Daily Gigs | My Tasks";
+  }, []);
 
   const { data: tasks = [], refetch } = useQuery({
     queryKey: ["my-tasks", user?.email],

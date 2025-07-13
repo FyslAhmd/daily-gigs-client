@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router";
 
 const Forbidden = () => {
+  useEffect(() => {
+    document.title = "Daily Gigs | Forbidden";
+  }, []);
   return (
     <div className=" min-h-screen flex items-center justify-center">
       <div className="bg-white bg-opacity-90 rounded-2xl shadow-2xl p-10 max-w-lg w-full text-center animate-fade-in-up">

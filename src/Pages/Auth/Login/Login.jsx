@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { Link, useLocation, useNavigate } from "react-router";
@@ -11,6 +11,11 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const axiosIns = useAxios();
+
+  useEffect(() => {
+    document.title = "Daily Gigs | Login";
+  }, []);
+
   const {
     register,
     handleSubmit,

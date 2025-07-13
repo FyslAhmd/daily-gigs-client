@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../Hooks/useAuth";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
@@ -16,6 +16,10 @@ import LoadingPage from "../../../Shared/Loading/LoadingPage";
 const WorkerHome = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+
+  useEffect(() => {
+    document.title = "Daily Gigs | Worker Home";
+  }, []);
 
   const { data: stats = {}, isLoading: statsLoading } = useQuery({
     queryKey: ["worker-stats", user?.email],

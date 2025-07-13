@@ -4,6 +4,9 @@ import Lottie from "lottie-react";
 import notFoundAnimation from "../../../assets/Animation.json";
 
 const Error404 = () => {
+  useEffect(() => {
+    document.title = "Daily Gigs | Error";
+  }, []);
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 py-12 bg-base-100 text-base-content">
       <div className="max-w-md w-full text-center">
@@ -16,7 +19,7 @@ const Error404 = () => {
         <p className="text-lg mt-2">
           The page you're looking for doesn't exist or has been moved.
         </p>
-        <Link to="/" className="my-10 btn bg-black text-white text-xl">
+        <Link to="/" className="my-10 btn bg-primary text-black text-xl">
           Go Home
         </Link>
       </div>
