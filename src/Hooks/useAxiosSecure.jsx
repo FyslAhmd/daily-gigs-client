@@ -5,7 +5,7 @@ import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://dailygigs.vercel.app",
 });
 
 const useAxiosSecure = () => {
